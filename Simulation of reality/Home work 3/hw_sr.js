@@ -13,6 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
 			uiLoading: "yes",
 			uiScanning: "yes",
 		});
+		
+		console.log('After init:', mindarThree)
 
 		//2. Щось намалювати
 		const {renderer, scene, camera} = mindarThree;
@@ -33,8 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
 		bear.scene.scale.set(0.1, 0.1, 0.1);
 		bear.scene.position.set(0, -0.4, 0);
 
-		
-		
 		const audioClip = await loadAudio("m1.mp3");
 
 		const audioListener = new THREE.AudioListener();
@@ -84,7 +84,9 @@ document.addEventListener("DOMContentLoaded", () => {
 		const light = new THREE.HemisphereLight( 0xffffff, 0xbbbbbb, 1 );
 		scene.add( light );
 
-		//4. Запуск MindAR 
+		//4. Запуск MindAR
+		console.log('Before start:', mindarThree)
+		
 		await mindarThree.start();
 
 		const gradus = Math.PI/180;
